@@ -1,0 +1,33 @@
+body {
+    background-color: #102C54;
+}
+
+#titulo {
+    text-align: center;
+    color: #FFCB76;
+}
+#titulosantorosario {
+    text-align: center;
+    color: white;
+}
+#rosario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#rostromaria {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+.misterios {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 30px 30px;
+    border: 5px solid #FFCB76;
+}
+.misterios:hover {
+    border: 5px solid #102C54;
+}
