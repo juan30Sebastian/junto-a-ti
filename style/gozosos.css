@@ -47,105 +47,121 @@ position: relative;
     height: 500px;
     border: 5px solid #FFCB76;
 }
-#versiculo {
+#tituloversiculo1 {
+    color: #FFCB76;
+    text-align: center;
+}
+#versiculo1 {
+    text-align: center;
+    color: white;
+}
+#tituloversiculo2 {
+    color: #FFCB76;
+    text-align: center;
+}
+#versiculo2 {
     text-align: center;
     color: white;
 }
 #rosario {
     width: 800px;
     height: 500px;
-    background-color: #FFCB76;
+    background-color: transparent;
 }
 #titulorosario {
 color: white;
 text-align: center;
 }
 #rosariografico{
-    background-color: red;    
+    background-color: transparent;    
     border-radius: 50px;
     position: relative;
     height: 350px;
+    width: 350px;
 }
 .circulorosariografico {
-    background-color: #102C54;
-    width: 20px;
-    height: 20px;
+    background-color: gray;
+    width: 30px;
+    height: 30px;
     border-radius: 50px;
 }
+.circulorosariografico:hover {
+    border: 5px solid #FFCB76;
+}
 #circulo1 {
-    width: 80px;
-    height: 100px;
+    width: 120px;
+    height: 150px;
         position: absolute;
-    margin: 320px 50px;
+    margin: 140px 30px;
 clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 55%, 81% 100%, 22% 100%,     35% 50%, 10% 50%)
 }
 #circulo2 {
     position: absolute;
-    margin: 290px 75px;
+    margin: 100px 75px;
 }
 #circulo3 {
     position: absolute;
-    margin: 250px 75px;
+    margin: 50px 75px;
 }
 #circulo4 {
     position: absolute;
-    margin: 240px 97px;
+    margin: 30px 100px;
 }
 #circulo5 {
     position: absolute;
-    margin: 250px 120px;
+    margin: 50px 130px;
 }
 #circulo6 {
     position: absolute;
-    margin: 285px 130px;
+    margin: 95px 155px;
 }
 #circulo7 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    margin: 310px 140px;
+    margin: 130px 170px;
 }
 
 #circulo8 {
     position: absolute;
-    margin: 350px 150px;
+    margin: 175px 180px;
 }
 #circulo9 {
     position: absolute;
-    margin: 370px 180px;
+    margin: 215px 185px;
 }
 #circulo10 {
     position: absolute;
-    margin: 370px 210px;
+    margin: 240px 210px;
 }
 #circulo11 {
     position: absolute;
-    margin: 350px 230px;
+    margin: 250px 250px;
 }
 #circulo12 {
     position: absolute;
-    margin: 320px 240px;
+    margin: 260px 290px;
 }
 #circulo13 {
     position: absolute;
-    margin: 290px 240px;
+    margin: 90px 290px;
 }
 #circulo14 {
     position: absolute;
-    margin: 260px 230px;
+    margin: 60px 275px;
 }
 #circulo15 {
     position: absolute;
-    margin: 250px 200px;
+    margin: 50px 240px;
 }
 #circulo16 {
     position: absolute;
-    margin: 260px 170px;
+    margin: 60px 210px;
 }
 #circulo17 {
     position: absolute;
-    margin: 285px 160px;
+    margin: 90px 190px;
 }
