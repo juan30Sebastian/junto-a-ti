@@ -81,21 +81,8 @@ letraColor5.addEventListener("click", () => {
 })
 
 var menu = document.querySelector("#menu");
-menu.addEventListener("click", function (){
-    var abrirMenu = 0;
-    var cerrarMenu= 0;
-    switch(abrirMenu){
-        case 0:
-        cerrarMenu = 1;
-        document.querySelector("#ajustes").style.display = "block";
-        break;
-    }
-     switch(cerrarMenu){
-        case 2:
-        abrirMenu= 0;
-        document.querySelector("#ajustes").style.display = "none";
-        break;
-    }
+menu.addEventListener("click", () => {
+    document.querySelector("#ajustes").style.display = "block";
 })
 
 var crucifico = document.querySelector("#crucifico");

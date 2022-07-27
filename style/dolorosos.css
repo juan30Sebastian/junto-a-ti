@@ -1,183 +1,99 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
-  background-image: url(../imagenes/fondo/fondoatardecercruz.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
+  background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
 }
-#ajustes {
-  background-color: white;
-  width: 350px;
-  height: 750px;
+.header {
+  background-image: radial-gradient(rgba(0, 0, 10, 0.5), rgba(0, 0, 30, 0.6)), url(../imagenes/fondo/fondodentroiglesia.jpg);
+  color: white;
+  padding: 2rem 0;
   position: fixed;
-  right: 20px;
-  top: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 5px solid #51d1f6;
+  z-index: 1;
+}
+.logo-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tituloheader{
+  letter-spacing: 10px;
+  font-size: 1.3rem;
+}
+.icono {
   display: none;
+}
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navigation ul li {
+  display: inline-block;
+}
+.navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: rgb(0, 0, 30);
+  border: 5px solid #51d1f6;
   border-radius: 20px;
-  overflow: auto;
+  position: relative;
 }
-#ajustes::-webkit-scrollbar-track{
-  width: 40px;
-  background-color: red;
-}
-#ajustes h1 {
-  color: #102C54;
-  text-align: center;
-}
-#fondoimagen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#fondoimagen span {
-  width: 150px;
-  height: 100px;
-  margin: auto;
-  border-radius: 10px;
-}
-#fondoimagen span .imagen {
-  width: 150px;
-  height: 100px;
-  border-radius: 10px;
-  border: 5px solid white;
-}
-#fondoimagen span .imagen:hover {
-  animation: scaleimagen 0.5s ease;
-}
-@keyframes scaleimagen {
-  0% {transform: scale(1.0);}
-  15%{transform: scale(1.1);}
-  100%{transform: scale(1.2);}
-  }
-.ajustes {
-  width: 30px;
-  height: 30px;
-  border: 5px solid gray;
-  border-radius: 50px;
-  margin: 0px 10px;
-}
-.ajustes:hover {
-  border: 5px solid black;
-}
-#fondo{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#fondocolor1 {
-  background-color: #102C54;
-}
-#fondocolor2 {
-  background-color: #FFCB76;
-}
-#fondocolor3 {
-  background-color: black;
-}
-#fondocolor4 {
-  background-color: white;
-}
-#fondocolor5 {
+.navigation ul li a:hover {
   background-color: #51d1f6;
-}
-#colorletra{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#letracolor1 {
-  background-color: #102C54;
-}
-#letracolor2 {
-  background-color: #FFCB76;
-}
-#letracolor3 {
-  background-color: black;
-}
-#letracolor4 {
-  background-color: white;
-}
-#letracolor5 {
-  background-color: #51d1f6;
-}
-#tamanofuente {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#tamanofuente label {
-  color: #FFCB76;
-}
-#menu {
-  background-color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-  position: fixed;
-  top: 10px;
-  right: 50%;
-}
-#contenedor {
-  width: 100%;
-  height: 100vh;;
-  scroll-snap-type: y mandatory;
-  overflow: auto;
-}
-.selection {
-  scroll-snap-align: start;
-  width: 100vh;
-  height: 100vh;
-}
-.contenedor-slider {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#crucifico{
-  width: 300px;
-  height: 400px;
-  border-radius: 30px;
-}
-#angeljesusorando {
-  width: 300px;
-}
-picture:hover {
-  animation: sliderimagen 2s ease;
-}
-@keyframes sliderimagen {
-  0%{
-    transform: translatex(-0px);
-  }
-  15%{
-    transform: translatex(-30px);
-  }
-  100%{
-    transform: translatex(-0px);
-  }
-}
-.descripcion {
-  display: none;
-  background-image: linear-gradient(white, #102C54);
-  width: 300px;
-  height: 400px;
-  box-shadow: -20px 0px 30px  white;
-  animation: sliderdescripcion     1s ease;
-  overflow: auto;
-  transform: scale(1);
-}
-@keyframes sliderdescripcion {
-  0%{
-    opacity: 0;
-  }
-}
-.titulo {
-  color: #FFCB76;
-  font-size: 1rem;
-  text-align: center;
-  text-shadow: -3px 0px 0px #102C54;
-}
-.oracion-versiculo {
-  text-align: center;
-  font-size: 25px;
   color: black;
+  font-size: 15px;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  margin-top: 10rem;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.container-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.box-image {
+  width: 200px;
+  height: 300px;
+  border-radius: 20px;
+  border: 3px solid #51d1f6;
+}
+.container-oracion {
+  width: 300px;
+  height: 400px;
+  background-color: #FFCB76;
+  box-shadow: -10px 0px 20px #51d1f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  overflow: auto;
+}
+.container-oracion .titulo {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+#box-imagen1 {
+  background-image: url(../imagenes/crusifico.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
