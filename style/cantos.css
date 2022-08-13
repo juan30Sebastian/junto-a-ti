@@ -1,59 +1,5 @@
-html {
-  scroll-behavior: smooth;
-}
 body {
-  background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
-}
-.header {
-  background-image: radial-gradient(rgba(0, 0, 10, 0.5), rgba(0, 0, 30, 0.6)), url(../imagenes/fondo/fondodentroiglesia.jpg);
-  color: white;
-  padding: 2rem 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-bottom: 5px solid #51d1f6;
-  z-index: 1;
-}
-.logo-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.tituloheader{
-  letter-spacing: 10px;
-  font-size: 1.3rem;
-}
-.icono {
-  display: none;
-}
-.navigation ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.navigation ul li {
-  display: inline-block;
-}
-.navigation ul li a {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  background-color: rgb(0, 0, 30);
-  border: 5px solid #51d1f6;
-  border-radius: 20px;
-  position: relative;
-}
-.navigation ul li a:hover {
-  background-color: #51d1f6;
-  color: black;
-  font-size: 15px;
-}
-.main {
-  width: 100%;
-  height: 90vh;
+  background-image: linear-gradient(33deg, rgb(0, 0, 30) 20%, #51d1f6 60%, rgb(0, 0, 30) 20%);
 }
 #container {
   display: flex;
@@ -62,7 +8,7 @@ body {
 }
 .contenido {
   width:20%;
-  height: 90vh;
+  height: 95vh;
   background-image: linear-gradient(to top, rgba(0, 0, 20, 0.54), rgba(0, 0, 40, 0.95)), url(../imagenes/fondo/fondodentroiglesia.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -97,7 +43,7 @@ body {
 }
 .seccion {
   width: 100%;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,6 +77,10 @@ body {
   color: white;
   cursor: pointer;
 }
+.boxsearch #respuesta {
+  color: white;
+}
+
 .allmusic {
   width: 100%;
   height: 90%;
@@ -173,7 +123,8 @@ body {
 }
 #norespuesta {
   display: none;
-  color: white;
+  color: wh
+  ite;
   text-align: center;
 }
 .boxaudio {
@@ -182,7 +133,10 @@ body {
   align-items: center;
   width: 100%;
   height: 100px;
-  background-color: transparent;
+  background-color: red;
+}
+#0001 {
+  background-color: blue;
 }
 .descripcion {
   width: 40%;
@@ -225,32 +179,74 @@ body {
   border-inline: 5px solid #00bb2d;
 }
 #seccionReproduciendose {
-  width: 90%;
+  width: 80%;
   height: 100px;
-  background-color: transparent;
-  border: 2px solid #51d1f6;
+  background-color: black;
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: fixed;
   bottom: 50px;
-  right: 10px;
+  right: 2%;
 }
-#seccionReproduciendose .img{
-width: 50px;
-height: 50px;
-  background-image: url(../imagenes/jesusorando.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
+.descripcionreproduciendoseimagen {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
-#seccionReproduciendose .titulo {
-  color: white;
+.descripcionreproduciendosetitulo {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: transparent;
+}
+.descripcionreproduciendosedescarga{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.descripcionreproduciendosedescarga a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
   font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #00bb2d;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  transition: ease 0.5s;
+  cursor: pointer;
+}
+.descripcionreproduciendosedescarga a:hover {
+  background-color: transparent;
+  border: 2px solid #00bb2d;
+}
+#seccionReproduciendose .imagenreproduciendose {
+width: 80px;
+height: 80px;
+border-radius: 20px;
+border: 0;
+}
+#seccionReproduciendose .tituloreproduciendose {
+  color: white;
+  font-size: 1.3rem;
   letter-spacing: 5px;
+  text-align: left;
+  margin-inline-start: 5px;
 }
 #seccionReproduciendose .audio {
-  width: 40%;
+  width: 30%;
   height: 100%;
   background-color: transparent;
   display: flex;
@@ -259,7 +255,7 @@ align-items: center;
 }
 #audioreproduciendose {
   width: 100%;
-  background-color: red;
+  background-color: transparent;
   border-radius: 20px
   ;
 }

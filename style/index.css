@@ -4,16 +4,78 @@ html {
 body {
   background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
 }
+.window-loader {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  flex-direction: column;
+    background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
+    position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+@keyframes mover {
+  100%{top: 3000px;}  
+}
+.boxs-loaders {
+  width: 20%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 0;
+  transform: scale(1);
+  transition: ease 0.7s;
+    animation: parpadeo 0.2s linear 4s 2;
+}
+@keyframes scale {
+  0%{transform: scale(10);}
+  100%{transform: scale(1);}
+}
+@keyframes parpadeo {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.boxs-loaders .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+} 
+  .boxs-loaders .square::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #FFCB76;
+    position: absolute;
+    bottom: 0px;
+    animation: entrada 3s ease-in-out 1;
+  }
+  @keyframes entrada {
+      0%{transform: translateY(80px);}
+    100%{transform: translateX(0px);}
+   }   
+    
 .header {
-  background-image: radial-gradient(rgba(0, 0, 10, 0.5), rgba(0, 0, 30, 0.6)), url(../imagenes/fondo/fondodentroiglesia.jpg);
+  display: none;
+  background-color: rgb(0, 0, 20);
   color: white;
-  padding: 2rem 0;
+  padding: 5px 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   border-bottom: 5px solid #51d1f6;
-  z-index: 1;
+  z-index: 2;
 }
 .logo-nav {
   display: flex;
@@ -41,26 +103,26 @@ body {
   text-decoration: none;
   color: white;
   padding: 0.5rem 1rem;
-  background-color: rgb(0, 0, 30);
-  border: 5px solid #51d1f6;
+  background-color: transparent;
   border-radius: 20px;
   position: relative;
+  transition: ease-in 0.4s;
 }
 .navigation ul li a:hover {
   background-color: #51d1f6;
   color: black;
   font-size: 15px;
+  margin-right: 10px;
 }
 .main {
   width: 100%;
   height: 100vh;
-  margin-top: 8rem;
+  margin-top: 0px;
 }
 .container {
   width: 100%;
-  height: 100vh;
 }
-.contenedor-selection {
+.container-section{
 width: 100%;
 height: 100vh;
 }
@@ -69,70 +131,109 @@ height: 100vh;
   font-size: 3rem;
   text-align: center;
   background-image: linear-gradient(to right, rgb(51, 11, 96), rgb(0, 0, 30));
-  data-aos: "fade-left";
 }
-.cards {
+
+.container-section .boxmisterio {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
-.cards section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.fondos {
+  width: 100%;
+  height: 90%;
+  position: relative;
+    overflow: hidden;
+  }
+.imagenfondo {
+  width: 100%;
+  height: 100%;
+  transition: ease-in 1s;
+  animation: 1s ease 1;
+}
+@keyframes moverfondo {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
 }
 .card {
-  background-image: linear-gradient(rgba(0, 0, 20, 0.4), rgba(0, 0, 20, 6)), url(../imagenes/fondo/fondodentroiglesia.jpg);
+    position: absolute;
+  background-image: linear-gradient(rgba(0, 0, 30, 0.4), rgb(0, 0, 20));
+  background-size: 100%;
   background-position: center;
-  background-attachment: fixed;
-  width: 250px;
-  height: 300px;
-  position: relative;
-  border-radius: 30px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   margin: 0px 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.descripciones {
+    width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  overflow: hidden;
-}
-.card::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(-173deg, rgba(255, 255, 255, 0.20) 0%, rgba(0, 0, 20, 0.69));
-  transition: 0.5s linear;
-  position: absolute;
-  top: 600px;
-  z-index: 1;
-}
-.card:hover::after {
-top: 0;
-}
-.titulocard {
-  color: white;
-  z-index: 2;
 }
 .imagencard {
-    width: 150px;
-    height: 200px;
+  width: 230px;
+  height: 300px;
   border-radius: 20px;
   border: 2px solid #FFCB76;
   z-index: 2;  
 }
+.titulocard {
+  color: #FFCB76;
+  z-index: 2;
+  font-size: 3rem;
+  letter-spacing: 10px;
+  text-align: center;
+}
+.versiculobiblico {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  transition: ease-in-out 0.6s;
+}
+.btniglesia {
+  width: 200px;
+  height: 50px;
+  background-color: #51d1f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 2rem;
+}
+.btniglesia:hover{
+  background-color: #FFCB76;
+  border-radius: 30px;
+  transition: ease-in 0.5s;
+  color: white;
+}
   .contenedor-oracion {
-display: flex;
-justify-content: center;
-align-items: center;
-    flex-direction: column;
+    width: 100%;
+  height: 100vh;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    background-image: linear-gradient( rgb(0, 0, 20), rgba(0, 0, 20, 0.55), #51d1f6), url(../imagenes/fondo/fondocaptusnoche.jpg);
 }
 .contenedor-oracion section {
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 align-items: center;
+}
+.oracionefect {
+  transform: rotatey(50deg);
+  box-shadow:  -20px 0px 0px #51d1f6;
 }
   #imagen-oracion{
     width: 300px;
@@ -166,8 +267,8 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-   height: 400px;
+    width: 250px;
+   height: 350px;
     background-image: linear-gradient(rgba(0, 0, 30, 0.209), rgba(0, 0, 30, 0.79)), url(../imagenes/coronacionmaria.png);
     background-position:center;
     background-size: 140%;
@@ -199,8 +300,8 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-   height: 400px;
+    width: 200px;
+   height: 300px;
     background-image: linear-gradient(rgba(0, 0, 30, 0.209), rgba(0, 0, 30, 0.79)), url(../imagenes/jose.jpg);
     background-position:center;
     background-size: 140%;
@@ -222,143 +323,133 @@ align-items: center;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
   }
   #imagen-oracion3:hover::after {
     top: 0;
   }
+  .mas {
+    width: 650px;
+    height:70px;
+    margin-top: 4rem;
+    background-color: rgb(0, 0, 30);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      letter-spacing: 5px;
+      border: 0;
+      transition: ease-in 0.7s;
+      border-bottom: 5px solid #FFCB76;
+    }
+    .mas:hover {
+      color: #51d1f6;
+    }
+#curvacanciones {
+  width: 100%;
+  height: 200px;
+}
   .contenedor-canciones{
+    width: 100%;
+    height: 1700px;
     display: flex;
     justify-content: center;
     align-items: center;
-        flex-direction: column;
+      flex-direction: column;
+      background-image: linear-gradient(33deg, rgb(0, 0, 30) 20%, #51d1f6 60%, rgb(0, 0, 30) 20%);
     }
     .contenedor-canciones  section {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      flex-direction: row;  
+      background-color: rgb(0, 0, 30);
+      width: 85%;
+      height: 370px;
     }
 .box-cancion {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 300px;
-  height: 400px;
-  background-color: #51d1f6;
-  border-radius: 20px;
+  width: 600px;
+  height: 300px;
+  background-image: url(../imagenes/fondo/fondocruzblanco.jpg);
+    background-position: center;
+    background-size: 700px;
+    border-radius: 20px;
   position: relative;
   overflow: hidden;
-  z-index: 2;
+  transition: ease-in 0.4s;
+  cursor: pointer;
+}
+.box-cancion:hover {
+  background-size: 850px;
+  background-repeat: no-repeat;
 }
 .box-cancion::after {
   content: "";
+  position: absolute;
+  right: 600px;
+  background-color: rgba(0, 0, 30, 0.60);
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 30, 0.69),rgba(0, 0, 30, 0.320)); 
-  position: absolute;
-  left: 0px;
-  transition: 0.5s ease;
+  transition: ease-in 0.3s;
+}
+  .box-cancion:hover::after {
+    background-color: rgba(0, 0, 60, 0.60);
+    right: 0;
+  }
+.box-cancion .titulocancion {
+  color: salmon;
+  font-size: 40px;
   z-index: 1;
 }
-.box-cancion .titulocancion {
-  color: #FFCB76;
-  font-size: 3  0px;
-  z-index: 2;
-}
-.contenedorimagencancion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 200px;
-  height: 250px;
-  border: 0;
-  z-index: 2;
-}
-.box-cancion .imagencancion {
-  width: 150px;
-  height: 180px;
-  border-radius: 20px;  
-}
-.loader {
-  width: 15px;
-  height: 40px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-left: 20px;
-  margin-top: 10px;
-  position: relative;
-  background: blue;
-  color: #FFF;
-  box-sizing: border-box;
-  animation: animloader 0.6s 0.3s linear infinite alternate;
-  display: none;
-  z-index: 2;
-}
-.loader::after,
-.loader::before {
-  content: '';  
-  box-sizing: border-box;
-  width: 8px;
-  height: 40px;
-  border-radius: 4px;
-  background: blue;
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  animation: animloader1 0.6s  0.45s  linear infinite alternate;
-}
-.loader::before {
-  left: -20px;
-  animation-delay: 0s;
-}
-
-@keyframes animloader {
-  0% {
-    height: 40px;
-    transform: translateY(0);
-  }
-  100% {
-    height: 10px;
-    transform: translateY(30px);
-  }
-}
-
-@keyframes animloader1 {
-  0% {
-    height: 48px;
-  }
-  100% {
-    height: 4.8px;
-  }
-}  
-.controls {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 2;
-}
-.controls audio {
-  background-image: linear-gradient(to left, rgb(0, 0, 30), #ffb766);
-  width: 70%;
-}
-
-.mas {
-width: 300px;
-height: 400px;
-  background-color: #FFCB76;
+.box-cancion .audio {
+  background-color: #51d1f6;
   border-radius: 20px;
+  z-index: 1;
+}
+.box-cancion-short {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-.mas img {
-  width: 150px;
-  height: 150px;
-  border-radius: 80px;
-  box-shadow: 0px 0px 10px 6px #51d1f6;
+  
+.short {
+  width: 300px;
+  height: 400px;
+  background-image: url(../imagenes/fondo/fondogirasol.jpg);
+    background-position: center;
+    background-size: 600px;
+    border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: ease-in 0.4s;
+  cursor: pointer;
 }
+.short:hover{
+  background-size: 750px;
+  background-repeat: no-repeat;
+}
+.short::after {
+  content: "";
+  position: absolute;
+  left: 400px;
+  background-color: rgba(0, 0, 30, 0.60);
+  width: 100%;
+  height: 100%;
+  transition: ease-in 0.4s;
+}
+  .short:hover:after {
+    background-color: rgba(0, 0, 60, 0.60);
+    left: 0;
+  }
+  #vermascanciones {
+    background-color: #51d1f6;
+    border-bottom: 5px solid #FFCB76;
+    margin-top: 1rem;
+  }

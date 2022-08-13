@@ -1,51 +1,45 @@
 alert("hola")
 
+var seccionTodas = document.querySelector("#seccionTodas");
+var liTodas = document.querySelector("#todas");
+var seccionMasEscuchadas = document.querySelector("#seccionMasEscuchadas");
+var liMasEscuchadas = document.querySelector("#masescuchadas");
+var seccionAlavanzas = document.querySelector("#seccionAlavanzas");
+var liAlavanzas = document.querySelector("#alavanzas");
+var seccionEucaristia = document.querySelector("#seccionEucaristia");
+var liEucaristia = document.querySelector("#eucaristia");
+var seccionMelancolicas = document.querySelector("#seccionMelancolicas");
+var liMelancolicas = document.querySelector("#melancolicas");
 
+
+var btnsearch = document.querySelector("#btnsearch");
+var textsearch = document.querySelector("#textsearch");
+const texto = textsearch.value.toLowerCase();
+
+/**/
 
 var all = [
-    {"titulo": "como no creer en dios",
-    "src": "../audios/canciones/comonocreerendios.mp3"},
-    {"titulo": "enciende una luz",
-    "src": "../audios/canciones/enciendeunaluz.mp3"}
+    {"id": "0001",    
+    "title": "como no creer en dios",
+    "audio": "../audios/canciones/comonocreerendios.mp3"},
+    {"id": "0002",
+        "title": "enciende una luz",
+    "audio": "../audios/canciones/enciendeunaluz.mp3"}
 ]
 
-
-
-btnsearch.addEventListener("click", function() {
-    var textsearch = document.querySelector("#textsearch");
-    const texto = textsearch.value.toLowerCase();
-    var btnsearch = document.querySelector("#btnsearch");
-
-    for(let songs of all){
-        let titulo = songs.titulo.toLowerCase();
-        if(titulo.indexOf(texto) !== -1){
-            document.querySelector("#seccionSearch").style.display = "block";
-            document.querySelector("#respuesta").style.display = "block";
-            document.querySelector("#seccionTodas").style.display = "none";
-            document.querySelector("#seccionMasEscuchadas").style.display = "none";
-            document.querySelector("#seccionAlavanzas").style.display = "none";
-            document.querySelector("#seccionEucaristia").style.display = "none";
-            document.querySelector("#seccionMelancolicas").style.display = "none";
-        }else{
-    document.querySelector("#seccionSearch").style.display = "block";
-    document.querySelector("#norespuesta").style.display = "block";
-    document.querySelector("#seccionTodas").style.display = "none";
-    document.querySelector("#seccionMasEscuchadas").style.display = "none";
-    document.querySelector("#seccionAlavanzas").style.display = "none";
-    document.querySelector("#seccionEucaristia").style.display = "none";
-    document.querySelector("#seccionMelancolicas").style.display = "none";       
-        }
-    }
-})
+var tituloReproduciendose = document.querySelector(".tituloreproduciendose");
+var audio = document.querySelector("#audioreproduciendose")
+audio.src = all[1].audio
 
 
 
-var seccionTodas = document.querySelector("#todas");
 
-seccionTodas.addEventListener("click", () => {
-    document.querySelector("#seccionTodas").style.display = "block";
-    document.querySelector("#seccionMasEscuchadas").style.display = "none";
-    document.querySelector("#seccionAlavanzas").style.display = "none";
+/* seccion todas del menu de navegacion */
+
+liTodas.addEventListener("click", () => {
+    seccionTodas.style.display = "block";
+    seccionMasEscuchadas.style.display = "none";
+    seccionAlavanzas.style.display = "none";
     document.querySelector("#seccionEucaristia").style.display = "none";
     document.querySelector("#seccionMelancolicas").style.display = "none";
     document.querySelector("#seccionSearch").style.display = "none";
@@ -55,38 +49,36 @@ seccionTodas.addEventListener("click", () => {
     document.querySelector("#alavanzas").style.backgroundColor = "transparent";
     document.querySelector("#eucaristia").style.backgroundColor = "transparent";
     document.querySelector("#melancolicas").style.backgroundColor = "transparent";
+});
 
-})
+/* canciones todas*/
 
-var boxtodas = document.querySelector("#seccionTodas");
-todas()
-function todas(){
-    for(var i = 0; i < all.length; i++){
-        var div = document.createElement("div");
-        div.className = "boxaudio";
-        boxtodas.appendChild(div)
- 
-        var cajaaudio = document.querySelector(".boxaudio");
-cajaaudio.addEventListener("click", () => {
-    document.querySelector("#seccionReproduciendose .titulo").innerHTML = "hola"
-})
 
-        var h2 = document.createElement("h2");
-        h2.innerHTML = all[i].titulo;
-    h2.style.color = "white";
-        div.appendChild(h2);
+actualizarTodas()
+function actualizarTodas(){    
 
+    for(let i = 0; i <all.length; i++){
+        
+        let boxAudioTodas = document.createElement("div");
+        boxAudioTodas.setAttribute = all[i].id;
+        boxAudioTodas.className = "boxaudio";
+        seccionTodas.appendChild(boxAudioTodas);
+        let tituloAudioTodas = document.createElement("h2");
+        boxAudioTodas.appendChild(tituloAudioTodas);
+        tituloAudioTodas.innerHTML = all[i].title;
+    
+    
     }
 }
 
 
-var seccionMasEscuchadas= document.querySelector("#masescuchadas");
+/* seccion mas escuchadas del menu de navegacion */
 
-seccionMasEscuchadas.addEventListener("click", () => {
-    document.querySelector("#seccionMasEscuchadas").style.display = "block";
-    document.querySelector("#seccionTodas").style.display = "none";
-    document.querySelector("#seccionAlavanzas").style.display = "none";
-    document.querySelector("#seccionEucaristia").style.display = "none";
+liMasEscuchadas.addEventListener("click", () => {
+    seccionMasEscuchadas.style.display = "block";
+    seccionTodas.style.display = "none";
+    seccionAlavanzas.style.display = "none";
+    seccionEucaristia.style.display = "none";
     document.querySelector("#seccionMelancolicas").style.display = "none";
     document.querySelector("#seccionSearch").style.display = "none";
 
@@ -97,13 +89,13 @@ seccionMasEscuchadas.addEventListener("click", () => {
     document.querySelector("#melancolicas").style.backgroundColor = "transparent";
 })
 
-var seccionAlavanzas= document.querySelector("#alavanzas");
+/* seccion alavanzas del menu de navegacion */
 
-seccionAlavanzas.addEventListener("click", () => {
-    document.querySelector("#seccionAlavanzas").style.display = "block";
-    document.querySelector("#seccionTodas").style.display = "none";
-    document.querySelector("#seccionMasEscuchadas").style.display = "none";
-    document.querySelector("#seccionEucaristia").style.display = "none";
+liAlavanzas.addEventListener("click", () => {
+    seccionAlavanzas.style.display = "block";
+    seccionTodas.style.display = "none";
+    seccionMasEscuchadas.style.display = "none";
+    seccionEucaristia.style.display = "none";
     document.querySelector("#seccionMelancolicas").style.display = "none";
     document.querySelector("#seccionSearch").style.display = "none";
 
@@ -115,13 +107,13 @@ seccionAlavanzas.addEventListener("click", () => {
 
 })
 
-var seccionEucaristia= document.querySelector("#eucaristia");
+/* seccion eucaristia del menu de navegacion */
 
-seccionEucaristia.addEventListener("click", () => {
-    document.querySelector("#seccionEucaristia").style.display = "block";
-    document.querySelector("#seccionTodas").style.display = "none";
-    document.querySelector("#seccionMasEscuchadas").style.display = "none";
-    document.querySelector("#seccionAlavanzas").style.display = "none";
+liEucaristia.addEventListener("click", () => {
+    seccionEucaristia.style.display = "block";
+    seccionTodas.style.display = "none";
+    seccionMasEscuchadas.style.display = "none";
+    seccionAlavanzas.style.display = "none";
     document.querySelector("#seccionMelancolicas").style.display = "none";
     document.querySelector("#seccionSearch").style.display = "none";
     
@@ -133,9 +125,9 @@ seccionEucaristia.addEventListener("click", () => {
 
 })
 
-var seccionMelancolicas= document.querySelector("#melancolicas");
+/* seccion melancolicas del menu de navegacion */
 
-seccionMelancolicas.addEventListener("click", () => {
+liMelancolicas.addEventListener("click", () => {
     document.querySelector("#seccionMelancolicas").style.display = "block";
     document.querySelector("#seccionTodas").style.display = "none";
     document.querySelector("#seccionMasEscuchadas").style.display = "none";
@@ -150,4 +142,15 @@ seccionMelancolicas.addEventListener("click", () => {
     document.querySelector("#eucaristia").style.backgroundColor = "transparent";
 })
 
+
+btnsearch.addEventListener("click", function() {
+
+    for(let songs of all){
+        let titulo = songs.titulo.toLowerCase();
+        if(titulo.indexOf(texto) !== -1){
+            alert("se hallo")
+
+        }           
+        }
+})
 
