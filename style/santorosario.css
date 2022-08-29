@@ -1,33 +1,147 @@
 body {
-    background-color: #102C54;
+    background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
 }
-
-#titulo {
-    text-align: center;
-    color: #FFCB76;
+.container {
+width: 100%;
+height: 90vh; 
+display: flex;
+justify-content: center;
+justify-content: center;
 }
-#titulosantorosario {
-    text-align: center;
+.boxprincipal {
+	width: 100%;
+	height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.boxtitulo {
+width: 100%;
+height: 10%;
+display: flex;
+justify-content: center;
+align-items: center;
+border: 0;
+border-block-end: 2px solid #51d1f6;
+background-color: rgb(0, 0, 15);
+}
+.boxtitulo .titulo {
     color: white;
+    text-align: center;
 }
-#rosario {
+.boxdescripccion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+.boxdescripccion .imagen {
+    width: 15%;
+    height: 70%;
+    border-radius: 20px;
+    position: relative;
+}
+.boxdescripccion .descripccion {
+    width: 23%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: ransition 2s ease-in 1 alternate;
 }
-#rostromaria {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+@keyframes transition{
+    0%{transform: translateY(0px);}
+    50%{transform: translateY(-800px);}
+    100%{transform: translateY(0px);}
+}
+.text {
+    width: 85%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+    transition: ease-in 0.5s;
+}
+.boxdescripccion #titulo {
+    color: #51d1f6;
+    text-align: center;
+}
+.boxdescripccion .parrafo {
+    color: white;
+    text-align: center;
+    font-size:1.2rem;
 }
 .misterios {
+    width: 90%;
+    height: 90%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.misterio {
     width: 100px;
     height: 100px;
-    border-radius: 50px;
-    margin: 30px 30px;
-    border: 5px solid #FFCB76;
+    border-radius: 50%;
+    background-color: #51d1f6;
+    box-shadow: -3px 3px 40px black;
+    color: #51d1f6;
+    position: relative;
 }
-.misterios:hover {
-    border: 5px solid #102C54;
+  .misterio::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: #51d1f6;
+    animation: push 2s linear 1;
+}
+  @keyframes push {
+      0% , 50%{ transform: translate(0% , 0%)  scale(1) }
+    100% { transform: translate(0%, -100%) scale(0);}
+  }
+.boxaudio {
+    width: 190%;
+    height: 90%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.boxaudio .tituloaudio {
+    text-align: center;
+    color: #51d1f6;
+}
+.boxaudio .audio {
+    width: 40%;
+    height: 10%;
+}
+.controles {
+    width: 100%;
+    height:10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFCB76;
+    transition: ease 1s;
+}
+.imagensiguiente {
+    width: 50px;
+    height: 50px;
+    background-color: #FFCB76;
+    border-radius: 50%;
+    transition: ease-in 0.3s;
 }
