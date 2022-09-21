@@ -1,6 +1,14 @@
 alert("hola")
 
 
+var btnSettings = document.querySelector("#btnsettings");
+var boxSettings = document.querySelector(".settings");
+var sectionSettings = document.querySelector("#sectionsettings");
+var closedSettings = document.querySelector(".closedsettings");
+var btnCancel = document.querySelector("#btncancel");
+var zoomMenos = document.querySelector("#zoomMenos");
+var zoomMas = document.querySelector("#zoomMas");
+var listMusic = document.querySelector(".listMusic");
 var imagen = document.querySelector(".imagen");
 var descripccion = document.querySelector(".descripccion");
 var misterios = document.querySelector(".misterios");
@@ -16,6 +24,8 @@ var imagenSiguiente = document.querySelector(".imagensiguiente");
 
 var numSiguiente = 0;
 var numMisterio = 0;
+var ordenMisterio = 0;
+var numFuente = 20;
 var fecha = new Date();
 var dia = fecha.getDay();
 
@@ -27,19 +37,35 @@ var oraciones = [
     /*señal de la cruz (0)*/
     {"titulo": "SEÑAL DE LA CRUZ",
     "parrafo": "En el nombre del Padre, del Hijo y del Espíritu Santo. Amén."},
-    /*acto de contrición(1)*/
+    /*por la señal (1)*/
+    {"titulo": "Por la señal",
+    "parrafo": "Por la señal de la Santa Cruz, de nuestros enemigos líbranos Señor Dios Nuestro. En el nombre del Padre, del Hijo y del Espíritu Santo. Amén."},
+    /*acto de contrición(2)*/
     {"titulo": "ACTO DE CONTRICIÓN",
     "parrafo":"Señor mío Jesucristo, Dios y hombre verdadero, Creador, Padre y Redentor mío. Por ser Tú quién eres, Bondad infinita, y porque te amo sobre todas las cosas, me pesa de todo corazón haberte ofendido. También me pesa que puedes castigarme con las penas del infierno. Ayudado de tu divina gracia propongo firmemente nunca más pecar, confesarme y cumplir la penitencia que me fuere impuesta. Amén."},
-    /*padre nuestro (2)*/
+    /*padre nuestro (3)*/
     {"titulo": "PADRE NUESTRO",
     "parrafo": "Padre Nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal. Amén."},
-    /*avemaría (3)*/
+    /*avemaría (4)*/
     {"titulo": "AVEMARÍA",
     "parrafo": "Dios te salve María, llena eres de gracia, el Señor es contigo. Bendita Tú eres entre todas las mujeres y bendito es el fruto de tu vientre Jesús. Santa María, Madre de Dios, ruega por nosotros los pecadores, ahora y en la hora de nuestra muerte. Amén. (bis3)"},
-    /*glor'ia al padre (4)*/
+    /*glor'ia al padre (5)*/
     {"titulo": "GLORIA AL PADRE",
-    "parrafo": "Gloria al Padre y al Hijo y al Espíritu Santo, como era en un principio, ahora y siempre y por los siglos de los siglos. Amén."}
-
+    "parrafo": "Gloria al Padre y al Hijo y al Espíritu Santo, como era en un principio, ahora y siempre y por los siglos de los siglos. Amén."},
+    /*oj, jesus mio (6)*/
+    {"titulo": "Oh, Jesús mío",
+    "parrafo": "Oh Jesús mío, perdónanos. Líbranos del fuego del infierno, lleva a todas las almas al cielo, especialmente a las más necesitadas de vuestra misericordia. Amén."},
+  /*credo de los apostoles (7)*/
+    {"titulo": "Credo de los apóstoles",
+  "parrafo": "Creo en Dios, Padre Todopoderoso, creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, Nuestro Señor, que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén."},
+  /*cordero de dios (8)*/ 
+  {"titulo": "Cordero de Dios",
+  "parrafo": "Cordero de Dios, que quitas el pecado del mundo. <br>Perdónanos, Señor. <br>Cordero de Dios, que quitas el pecado del mundo. <br>Escúchanos, Señor. <br>Cordero de Dios, que quitas el pecado del mundo. <br>Ten piedad de nosotros. <br>Ruega por nosotros, Santa Madre de Dios. Para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo. Amén."},
+  /*dios te salve maria (9)*/  
+  {"titulo": "Dios te salve maría",
+  "parrafo": "Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A Ti llamamos los desterrados hijos de Eva; a Ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este destierro muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce siempre Virgen María! Ruega por nosotros, Santa Madre de Dios, para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo. Amén."},
+  {"titulo": "Ángel de la guarda",
+ "parrafo": "Ángel de mi guarda, <br>dulce compañía, <br>no me desampares, <br>ni de noche ni de día, <br>no me dejes solo, que me perdería, <br>hasta que me pongas, en paz y alegría, <br>con todos los santos, Jesús y María. <br>Amén."}
 ]
 
 var misterioDay = [
@@ -86,7 +112,10 @@ var misterioDay = [
     "cuartomisterio": "La Asunción",
     "cuartotexto": "La Asunción de la Virgen María, en cuerpo y alma, al Cielo.",
     "quintomisterio": "La Coronación de la Santísima Virgen",
-    "quintotexto": "Una gran señal apareció en el cielo: una mujer, vestida de sol, con la luna bajo los pies, y una corona de doce estrellas sobre su cabeza."}
+    "quintotexto": "Una gran señal apareció en el cielo: una mujer, vestida de sol, con la luna bajo los pies, y una corona de doce estrellas sobre su cabeza."},
+    /*angel de la guarda (10)*/
+    {"titulo": "Angel de la guarda",
+   "parrafo": "Ángel de mi guarda, <br>dulce compañía, <br>no me desampares, <br>ni de noche ni de día, <br>no me dejes solo, que me perdería, <br>hasta que me pongas, en paz y alegría, <br>con todos los santos, Jesús y María. <br>Amén."}
 ]
 
 var secuenciaMisterioDay = [
@@ -100,10 +129,11 @@ var secuenciaMisterioDay = [
 ]
 
 var allSongs = [
-  "../audios/canciones/comonocreerendios.mp3",
-  "../audios/canciones/enciendeunaluz.mp3",
-  "../audios/canciones/padrenuestro.mp3",
-  "../audios/canciones/mariatu.mp3"
+  ["como no creer en dios", "../audios/canciones/comonocreerendios.mp3"],
+  ["enciende una luz", "../audios/canciones/enciendeunaluz.mp3"],
+  ["padre nuestro", "../audios/canciones/padrenuestro.mp3"],
+["maria tu", "../audios/canciones/mariatu.mp3"],
+  ["la familia", "../audios/canciones/lafamilia.mp3"]
 ]
 
 var audioAleatorio = Math.floor(Math.random()*allSongs.length);
@@ -115,12 +145,13 @@ misterio.addEventListener("click", () => {
     if(numMisterio == 10){
       misterios.style.display = "none";
       text.style.display = "flex";
-        titulo.innerHTML = oraciones[4].titulo;
-        parrafo.innerHTML = oraciones[4].parrafo;
-   }    
+      titulo.innerHTML = oraciones[5].titulo;
+      parrafo.innerHTML = oraciones[5].parrafo;
+      imagenSiguiente.style.backgroundColor = "#FFCB76";
+      numSiguiente= 9;
+    }
     alert(numMisterio)
 })
-
 
 imagenSiguiente.addEventListener("click", function actualizarRosario(){
     numSiguiente++
@@ -135,59 +166,172 @@ imagenSiguiente.addEventListener("click", function actualizarRosario(){
         parrafo.innerHTML = oraciones[1].parrafo
       break;
       case 2:
+        titulo.innerHTML = oraciones[7].titulo
+        parrafo.innerHTML = oraciones[7].parrafo
+      break;
+      case 3:
         titulo.innerHTML = oraciones[2].titulo
         parrafo.innerHTML = oraciones[2].parrafo
       break;
-      case 3:
+      case 4:
         titulo.innerHTML = oraciones[3].titulo
         parrafo.innerHTML = oraciones[3].parrafo
       break;
-      case 4:
+      case 5:
         titulo.innerHTML = oraciones[4].titulo
         parrafo.innerHTML = oraciones[4].parrafo
       break;
-      case 5:
-        titulo.innerHTML = secuenciaMisterioDay[dia].primermisterio;
-        parrafo.innerHTML = secuenciaMisterioDay[dia].primertexto;
-      break;
       case 6:
-        titulo.innerHTML = oraciones[2].titulo;
-        parrafo.innerHTML = oraciones[2].parrafo;
+        titulo.innerHTML = oraciones[5].titulo
+        parrafo.innerHTML = oraciones[5].parrafo
       break;
       case 7:
-        text.style.display = "none";
-        misterios.style.display = "flex";
+        text.style.display = "flex"
+        misterios.style.display = "none"
+        boxAudio.style.display = "none";
+        
+        ordenMisterio++;
+        if(ordenMisterio == 1){
+          titulo.innerHTML = secuenciaMisterioDay[dia].primermisterio;
+          parrafo.innerHTML = secuenciaMisterioDay[dia].primertexto;
+        }else if(ordenMisterio == 2){
+          titulo.innerHTML = secuenciaMisterioDay[dia].segundomisterio;
+          parrafo.innerHTML = secuenciaMisterioDay[dia].segundotexto;
+        }else if(ordenMisterio == 3){
+          titulo.innerHTML = secuenciaMisterioDay[dia].tercermisterio;
+          parrafo.innerHTML = secuenciaMisterioDay[dia].tercertexto;
+        }else if(ordenMisterio == 4){
+          titulo.innerHTML = secuenciaMisterioDay[dia].cuartomisterio;
+          parrafo.innerHTML = secuenciaMisterioDay[dia].cuartotexto;
+        }else if(ordenMisterio == 5){
+          titulo.innerHTML = secuenciaMisterioDay[dia].quintomisterio;
+          parrafo.innerHTML = secuenciaMisterioDay[dia].quintotexto;
+        }
       break;
-      case 8:    ;            
-        numMisterio = 0;
-        misterios.style.display = "none";
-        text.style.display = "none";
-        boxAudio.style.display = "flex";
-        audio.src = allSongs[audioAleatorio];
+      case 8:
+        titulo.innerHTML = oraciones[3].titulo;
+        parrafo.innerHTML = oraciones[3].parrafo;
       break;
       case 9:
-        boxAudio.style.display = "none";
-        text.style.display =  "flex";
-        titulo.innerHTML = secuenciaMisterioDay[dia].segundomisterio;
-        parrafo.innerHTML = secuenciaMisterioDay[dia].segundotexto;
-      break;
-      case 10:
-        titulo.innerHTML = oraciones[2].titulo;
-        parrafo.innerHTML = oraciones[2].parrafo;
-      break;
-      case 11:
+        numSiguiente = "juntoati";
+        imagenSiguiente.style.backgroundColor = "transparent"
         text.style.display = "none";
         misterios.style.display = "flex";
       break;
-      case 12:    ;            
+      case 10:
+      titulo.innerHTML = oraciones[6].titulo;
+        parrafo.innerHTML = oraciones[6].parrafo;
+      break;
+      case 11:    ;            
         numMisterio = 0;
         misterios.style.display = "none";
         text.style.display = "none";
         boxAudio.style.display = "flex";
-        audio.src = allSongs[audioAleatorio];
-      break;
+        audio.src = allSongs[audioAleatorio][1];
+        tituloAudio.innerHTML = allSongs[audioAleatorio][0];
+        
+        if(ordenMisterio == 1){
+          numSiguiente = 6;
+        }else if(ordenMisterio == 2){
+          numSiguiente = 6;
+        }else if(ordenMisterio == 3){
+          numSiguiente = 6;
+        }else if(ordenMisterio == 4){
+          numSiguiente = 6;
+        }else if(ordenMisterio == 5){
+          numSiguiente = 11;
+        }
+        break;
+        case 12:
+        boxAudio.style.display = "none";
+        text.style.display = "flex";
+        titulo.innerHTML = oraciones[9].titulo
+        parrafo.innerHTML = oraciones[9].parrafo
+        break;
+        case 13:
+          titulo.innerHTML = oraciones[8].titulo;
+          parrafo.innerHTML = oraciones[8].parrafo;
+        break;
+        case 14:
+          titulo.innerHTML = oraciones[10].titulo;
+          parrafo.innerHTML = oraciones[10].parrafo;
+        break;
+        case 15:
+          titulo.innerHTML = oraciones[0].titulo;
+          parrafo.innerHTML = oraciones[0].parrafo;
+        break;
+        case 16:
+          titulo.innerHTML = "";
+          parrafo.innerHTML = "Avemaría purísima. Sin pecado consevida.";
+          controles.style.display = "none"
+        break;
     }
 })
 
 
 
+
+btnSettings.addEventListener("click", () => {
+  closedSettings.style.display = "flex";  
+  sectionSettings.style.display = "flex";
+    boxSettings.style.top = "0px";
+})
+
+btnCancel.addEventListener("click", () => {
+  closedSettings.style.display = "none";  
+  sectionSettings.style.display = "none";
+  boxSettings.style.top = "-2000px";
+})
+
+zoomMenos.addEventListener("click", () => {
+    numFuente -= 2;
+  alert(numFuente)
+  
+  titulo.style.fontSize = numFuente + "px";
+  parrafo.style.fontSize = numFuente + "px";
+  if(numFuente == 10){
+    zoomMenos.style.border = "1px solid rgb(0, 0, 30)";
+    zoomMenos.style.color = "rgb(0, 0, 30)";
+    numFuente
+  }
+
+    if(numFuente <= 9){
+      zoomMas.style.border = "1px solid #51d1f6";
+      zoomMas.style.color = "#51d1f6";
+    }
+
+})
+
+zoomMas.addEventListener("click", () => {
+  numFuente += 2;
+  alert(numFuente)
+  titulo.style.fontSize = numFuente + "px";
+  parrafo.style.fontSize = numFuente + "px";
+
+  if(numFuente == 10){
+    zoomMas.style.border = "1px solid rgb(0, 0, 30)";
+    zoomMas.style.color = "rgb(0, 0, 30)";
+  }
+
+
+  if(numFuente => 2){
+    zoomMenos.style.border = "1px solid #51d1f6";
+    zoomMenos.style.color = "#51d1f6";
+  }
+
+})
+
+
+
+for(var i=0; i< allSongs.length; i++){
+
+  var titleListMusic = document.createElement("h3");
+titleListMusic.className = "titleListMusic";
+  titleListMusic.innerHTML = allSongs[i][0];
+  listMusic.appendChild(titleListMusic)
+
+}
+
+titleListMusic.addEventListener("click", () => {
+    alert("esto responde")
+})
