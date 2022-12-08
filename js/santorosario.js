@@ -270,6 +270,20 @@ imagenSiguiente.addEventListener("click", function actualizarRosario(){
 
 
 
+/*seccion of settings in sant rosario*/
+
+
+var btnSettings = document.querySelector("#btnsettings");
+var boxSettings = document.querySelector(".settings");
+var sectionSettings = document.querySelector("#sectionsettings");
+var closedSettings = document.querySelector(".closedsettings");
+var btnCancel = document.querySelector("#btncancel");
+var zoomMenos = document.querySelector("#zoomMenos");
+var zoomMas = document.querySelector("#zoomMas");
+var listMusic = document.querySelector(".listMusic");
+
+
+
 
 btnSettings.addEventListener("click", () => {
   closedSettings.style.display = "flex";  
@@ -326,9 +340,10 @@ zoomMas.addEventListener("click", () => {
 for(var i=0; i< allSongs.length; i++){
 
   var titleListMusic = document.createElement("h3");
-titleListMusic.className = "titleListMusic";
+  titleListMusic.className = "titleListMusic";
   titleListMusic.innerHTML = allSongs[i][0];
   listMusic.appendChild(titleListMusic)
+  
 
 }
 

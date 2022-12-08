@@ -453,3 +453,483 @@ align-items: center;
     border-bottom: 5px solid #FFCB76;
     margin-top: 1rem;
   }
+
+
+
+
+
+
+
+  @media only screen and (max-width: 700px) {
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
+    }
+    .window-loader {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      flex-direction: column;
+        background-image: linear-gradient(rgb(0, 0, 15), rgb(0, 0, 15));
+        position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 3;
+    }
+    @keyframes mover {
+      100%{top: 3000px;}  
+    }
+    .boxs-loaders {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 0;
+      transform: scale(1);
+      transition: ease 0.7s;
+        animation: parpadeo 0.2s linear 4s 2;
+      }
+    @keyframes scale {
+      0%{transform: scale(10);}
+      100%{transform: scale(1);}
+    }
+    @keyframes arpadeo {
+      0%{opacity: 0;}
+      100%{opacity: 1;}
+    }
+    .boxs-loaders .square {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    } 
+      .boxs-loaders .square::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #FFCB76;
+        position: absolute;
+        bottom: 0px;
+        animation: entrada 3s ease-in-out 1;
+      }
+      @keyframes entrada {
+          0%{transform: translateY(30px);}
+        100%{transform: translateX(0px);}
+       }   
+        
+    .header {
+      display: flex;
+      background-color: rgb(0, 0, 20);
+      color: white;
+      padding: 5px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 5px solid #51d1f6;
+      z-index: 2;
+    }
+    .logo-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tituloheader{
+      letter-spacing: 5px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .icono {
+      display: none;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+    .icono-menu {
+      background-color: white;
+      border-radius: 20%;
+    }
+    .navigation ul {
+      display: none;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 300px;
+    }
+    .navigation ul li {
+      display: block;
+    }
+    .navigation ul li a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      position: relative;
+      transition: ease-in 0.4s;
+    }
+    .navigation ul li a:hover {
+      background-color: #51d1f6;
+      color: black;
+      font-size: 15px;
+      margin-right: 10px;
+    }
+    .main {
+      width: 100%;
+      height: 90vh;
+      margin-top: 0;
+    }
+    .container {
+      width: 100%;
+      
+    }
+    .container-section{
+    width: 100%;
+    
+    }
+    .titulosecciones{
+      color: #51d1f6;
+      font-size: 1rem;
+      text-align: center;
+      background-image: linear-gradient(to right, rgb(51, 11, 96), rgb(0, 0, 30));
+    }
+    
+    .container-section .boxmisterio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .fondos {
+      width: 100%;
+      height: 100%;
+      position: relative;
+        overflow: hidden;
+      }
+    .imagenfondo {
+      width: 100%;
+      height: 100%;
+      transition: ease-in 1s;
+      animation: 1s ease 1;
+    }
+    @keyframes moverfondo {
+      0%{opacity: 0;}
+      100%{opacity: 1;}
+    }
+    .card {
+        position: absolute;
+      background-image: linear-gradient(rgba(0, 0, 30, 0.4), rgb(0, 0, 20));
+      background-size: 100%;
+      background-position: top;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      margin: 0px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .descripciones {
+        width: 50%;
+        height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .imagencard {
+      width: 150px;
+      height: 200px;
+      border-radius: 20px;
+      border: 2px solid #FFCB76;  
+      margin-top: 50px;
+    }
+    .titulocard {
+      color: #FFCB76;
+      z-index: 2;
+      font-size: 1.9rem;
+      letter-spacing: 10px;
+      text-align: center;
+    }
+    .versiculobiblico {
+      color: white;
+      text-align: center;
+      font-size: 1rem;
+      letter-spacing: 5px;
+      transition: ease-in-out 0.6s;
+    }
+    .btniglesia {
+      width: 170px;
+      height: 50px;
+      background-color: #51d1f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .btniglesia:hover{
+      background-color: #FFCB76;
+      border-radius: 30px;
+      transition: ease-in 0.5s;
+      color: white;
+    }
+      .contenedor-oracion {
+        width: 100%;
+      height: 100vh;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+        background-image: linear-gradient( rgb(0, 0, 20), rgba(0, 0, 20, 0.55), #51d1f6), url(../imagenes/fondo/fondocaptusnoche.jpg);
+    }
+    .contenedor-oracion section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    }
+    .oracionefect {
+      transform: rotatey(50deg);
+      box-shadow:  -20px 0px 0px #51d1f6;
+    }
+      #imagen-oracion{
+        width: 300px;
+        height: 400px;
+        border-radius: 30px;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.409), rgba(0, 0, 30, 0.69)), url(../imagenes/angeljesusorando.jpg);
+        background-position: center;
+        position: relative;
+        overflow-y: hidden;
+      }
+      #imagen-oracion::after {
+        content: "Oración a Jesús.";
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.69),rgba(0, 0, 30, 0.320));
+        position: absolute;
+        top: -560px;
+        left: 0px;
+        transition: .5s linear;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3rem;
+        text-align: center;
+      }
+      #imagen-oracion:hover::after {
+        top: 0;
+      }
+    #imagen-oracion2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+       height: 350px;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.209), rgba(0, 0, 30, 0.79)), url(../imagenes/coronacionmaria.png);
+        background-position:center;
+        background-size: 140%;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+      position: relative;
+      overflow: hidden;  
+    }
+      #imagen-oracion2::after {
+        content: "Oración a María.";
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.69),rgba(0, 0, 30, 0.320));
+        position: absolute;
+        top: 560px;
+        left: 0px;
+        transition: .5s linear;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3rem;
+        text-align: center;
+      }
+      #imagen-oracion2:hover::after {
+        top: 0;
+      }
+      #imagen-oracion3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+       height: 300px;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.209), rgba(0, 0, 30, 0.79)), url(../imagenes/jose.jpg);
+        background-position:center;
+        background-size: 140%;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+      position: relative;
+      overflow: hidden;  
+    }
+      #imagen-oracion3::after {
+        content: "Oración a San José.";
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 30, 0.69),rgba(0, 0, 30, 0.320));
+        position: absolute;
+        top: -560px;
+        left: 0px;
+        transition: .5s linear;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+      }
+      #imagen-oracion3:hover::after {
+        top: 0;
+      }
+      .mas {
+        width: 650px;
+        height:70px;
+        margin-top: 4rem;
+        background-color: rgb(0, 0, 30);
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1.5rem;
+          letter-spacing: 5px;
+          border: 0;
+          transition: ease-in 0.7s;
+          border-bottom: 5px solid #FFCB76;
+        }
+        .mas:hover {
+          color: #51d1f6;
+        }
+    #curvacanciones {
+      width: 100%;
+      height: 200px;
+    }
+      .contenedor-canciones{
+        width: 100%;
+        height: 1700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+          flex-direction: column;
+          background-image: linear-gradient(33deg, rgb(0, 0, 30) 20%, #51d1f6 60%, rgb(0, 0, 30) 20%);
+        }
+        .contenedor-canciones  section {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          background-color: rgb(0, 0, 30);
+          width: 85%;
+          height: 370px;
+        }
+    .box-cancion {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 600px;
+      height: 300px;
+      background-image: url(../imagenes/fondo/fondocruzblanco.jpg);
+        background-position: center;
+        background-size: 700px;
+        border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: ease-in 0.4s;
+      cursor: pointer;
+    }
+    .box-cancion:hover {
+      background-size: 850px;
+      background-repeat: no-repeat;
+    }
+    .box-cancion::after {
+      content: "";
+      position: absolute;
+      right: 600px;
+      background-color: rgba(0, 0, 30, 0.60);
+      width: 100%;
+      height: 100%;
+      transition: ease-in 0.3s;
+    }
+      .box-cancion:hover::after {
+        background-color: rgba(0, 0, 60, 0.60);
+        right: 0;
+      }
+    .box-cancion .titulocancion {
+      color: salmon;
+      font-size: 40px;
+      z-index: 1;
+    }
+    .box-cancion .audio {
+      background-color: #51d1f6;
+      border-radius: 20px;
+      z-index: 1;
+    }
+    .box-cancion-short {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+      
+    .short {
+      width: 300px;
+      height: 400px;
+      background-image: url(../imagenes/fondo/fondogirasol.jpg);
+        background-position: center;
+        background-size: 600px;
+        border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: ease-in 0.4s;
+      cursor: pointer;
+    }
+    .short:hover{
+      background-size: 750px;
+      background-repeat: no-repeat;
+    }
+    .short::after {
+      content: "";
+      position: absolute;
+      left: 400px;
+      background-color: rgba(0, 0, 30, 0.60);
+      width: 100%;
+      height: 100%;
+      transition: ease-in 0.4s;
+    }
+      .short:hover:after {
+        background-color: rgba(0, 0, 60, 0.60);
+        left: 0;
+      }
+      #vermascanciones {
+        background-color: #51d1f6;
+        border-bottom: 5px solid #FFCB76;
+        margin-top: 1rem;
+      }
+    
+
+  }
